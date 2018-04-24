@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 
-export interface IGenericObject { [key:string]: any; };
+export interface IGenericObject { [key:string]: any; }
 
 export interface IProps {
   buttonProps?: IGenericObject;
 
-  children?: React.ReactNode,
+  children?: React.ReactNode;
 
   scriptUrl?: string;
   onScriptLoad?: () => void;
