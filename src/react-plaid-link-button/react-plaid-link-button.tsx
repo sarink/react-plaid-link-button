@@ -15,7 +15,7 @@ export interface IProps {
 
   plaidLinkProps: {
     clientName: string;
-    product: 'transactions' | 'auth' | 'identity';
+    product: Array<'transactions' | 'auth' | 'identity'>;
     key: string;
     env: 'sandbox' | 'development' | 'production';
     onSuccess: (publicToken:string, metadata:IGenericObject) => void;
