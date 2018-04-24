@@ -2,10 +2,15 @@
 A drop-in implementation of [Plaid Link](https://plaid.com/docs/api/#creating-items-with-plaid-link) with typescript definitions,
 built for React. Originally written for [Basil Finance](https://basilfinance.com).
 
+
 ## Install
 ```
 npm install react-plaid-link-button --save
 ```
+
+
+## Dependencies
+None!
 
 
 ## Typescript?
