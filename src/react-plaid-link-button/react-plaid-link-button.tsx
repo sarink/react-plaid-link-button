@@ -121,8 +121,12 @@ class PlaidLinkButton extends React.PureComponent<IProps, IState> {
     if (this.props.onScriptError) this.props.onScriptError();
   }
 
+  getScriptEl = () : HTMLScriptElement => {
+    return document.querySelector(`script[src="${this.props.scriptUrl}"]`);
+  }
+
   componentDidMount() {
-    let scriptEl:HTMLScriptElement = document.querySelector(`script[src="${this.props.scriptUrl}"]`);
+    let scriptEl = this.getScriptEl();
 
     const scriptAlreadyInserted = scriptEl != null;
     const scriptAlreadyLoaded = scriptAlreadyInserted && (window as any).Plaid;
@@ -144,7 +148,7 @@ class PlaidLinkButton extends React.PureComponent<IProps, IState> {
   }
 
   componentWillUnmount() {
-    const scriptEl = document.querySelector(`script[src="${this.props.scriptUrl}"]`);
+    const scriptEl = this.getScriptEl();
     if (scriptEl) {
       scriptEl.removeEventListener('load', this.handleScriptLoad);
       scriptEl.removeEventListener('error', this.handleScriptError);
