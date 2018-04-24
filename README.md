@@ -14,7 +14,7 @@ None!
 
 
 ## Typescript?
-Yup! Check out the [definition file]()
+Yup! Check out the [definition file](https://github.com/sarink/react-plaid-link-button/blob/master/dist/react-plaid-link-button/react-plaid-link-button.d.ts)
 
 ## Example
 ```
