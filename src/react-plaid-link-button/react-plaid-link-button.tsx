@@ -1,7 +1,40 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-class PlaidLinkButton extends React.PureComponent {
+
+export interface IGenericObject { [key:string]: any; };
+
+export interface IProps {
+  buttonProps?: IGenericObject;
+
+  children?: React.ReactNode,
+
+  scriptUrl?: string;
+  onScriptLoad?: () => void;
+  onScriptError?: () => void;
+
+  plaidLinkProps: {
+    clientName: string;
+    product: 'transactions' | 'auth' | 'identity';
+    key: string;
+    env: 'sandbox' | 'development' | 'production';
+    onSuccess: (publicToken:string, metadata:IGenericObject) => void;
+    onExit?: (error:IGenericObject, metadata:IGenericObject) => void;
+    onEvent?: (eventName:string, metadata:IGenericObject) => void;
+    onLoad?: () => void;
+    webhook?: string;
+    token?: string;
+    isWebView?: boolean;
+  };
+}
+export interface IState {
+  scriptErrored: boolean;
+  scriptLoaded: boolean;
+}
+
+class PlaidLinkButton extends React.PureComponent<IProps, IState> {
+  plaidLinkHandler: any;
+
   static propTypes = {
     // Any props set here will be spread onto the top-level button element
     buttonProps: PropTypes.object,
@@ -65,7 +98,7 @@ class PlaidLinkButton extends React.PureComponent {
     children: 'Link new account',
   };
 
-  constructor(props) {
+  constructor(props:IProps) {
     super(props);
     this.state = {
       scriptErrored: false,
@@ -73,13 +106,13 @@ class PlaidLinkButton extends React.PureComponent {
     };
   }
 
-  handleButtonClick = (event) => {
+  handleButtonClick = () => {
     this.plaidLinkHandler.open();
   }
 
   handleScriptLoad = () => {
     this.setState({ scriptLoaded: true });
-    this.plaidLinkHandler = window.Plaid.create({ ...this.props.plaidLinkProps });
+    this.plaidLinkHandler = (window as any).Plaid.create({ ...this.props.plaidLinkProps });
     if (this.props.onScriptLoad) this.props.onScriptLoad();
   }
 
@@ -89,10 +122,10 @@ class PlaidLinkButton extends React.PureComponent {
   }
 
   componentDidMount() {
-    let scriptEl = document.querySelector(`script[src="${this.props.scriptUrl}"]`);
+    let scriptEl:HTMLScriptElement = document.querySelector(`script[src="${this.props.scriptUrl}"]`);
 
     const scriptAlreadyInserted = scriptEl != null;
-    const scriptAlreadyLoaded = scriptAlreadyInserted && window.Plaid;
+    const scriptAlreadyLoaded = scriptAlreadyInserted && (window as any).Plaid;
     if (scriptAlreadyLoaded) {
       this.handleScriptLoad();
       return;
