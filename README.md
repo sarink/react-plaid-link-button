@@ -16,6 +16,30 @@ None!
 ## Typescript?
 Yup! Check out the [definition file]()
 
+## Example
+```
+import PlaidLinkButton from 'react-plaid-link-button';
+
+class PlaidLinkExample extends React.Component {
+  render() {
+    return (
+      <PlaidLinkButton
+        buttonProps={{ className: 'some-class' }}
+        plaidLinkProps={{
+          clientName: PLAID_CLIENT_NAME,
+          key: PLAID_PUBLIC_KEY,
+          env: PLAID_ENV,
+          product: ['transactions'],
+          webhook: 'https://my-backend-webhook',
+        }}
+        onScriptLoad={() => this.setState({ loaded: true })}
+      >
+        this.state.loaded ? 'Click me to launch Plaid!' : 'Loading....'
+      </PlaidLinkButton>
+    );
+  }
+}
+```
 
 ## Props
 ```
