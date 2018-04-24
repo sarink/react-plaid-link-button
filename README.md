@@ -75,3 +75,6 @@ plaidLinkProps: PropTypes.shape({
   isWebView: PropTypes.bool,
 }).isRequired,
 ```
+
+## License
+MIT
