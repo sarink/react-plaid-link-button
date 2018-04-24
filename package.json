@@ -29,9 +29,10 @@
     "url": "https://github.com/sarink/react-plaid-link-button/issues"
   },
   "homepage": "https://github.com/sarink/react-plaid-link-button#readme",
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.6.1"
+  },
   "peerDependencies": {
-    "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },
