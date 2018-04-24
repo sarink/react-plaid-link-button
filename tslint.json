@@ -12,13 +12,9 @@
     "interface-name": [true, "always-prefix"],
     "import-name": {
       "options": [
-        { "lodashClone": "_clone" },
-        { "lodashGet": "_get" },
-        { "lodashIsempty": "_isEmpty" },
-        { "lodashIsnumber": "_isNumber" },
-        { "lodashIsstring": "_isString" },
-        { "lodashSetwith": "_setWith" },
-        { "lodashUnset": "_unset" }
+        { "propTypes": "PropTypes" },
+        { "react": "React" },
+        { "reactDom": "ReactDOM "}
       ]
     },
     "no-unused-variable": true,
