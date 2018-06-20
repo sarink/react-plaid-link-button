@@ -105,5 +105,16 @@ plaidLinkProps: PropTypes.shape({
 }).isRequired,
 ```
 
+## Contributing/How to build
+Shell into the docker container and run the build script
+
+```
+docker-compose run --rm frontend bash
+npm run build:prod
+```
+
+
+
+
 ## License
 MIT
