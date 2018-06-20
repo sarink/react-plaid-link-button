@@ -15,7 +15,7 @@ export interface IProps {
 
   plaidLinkProps: {
     clientName: string;
-    product: Array<'transactions' | 'auth' | 'identity'>;
+    product: Array<'auth' | 'transactions' | 'identity' | 'balance' | 'income' | 'assets'>;
     key: string;
     env: 'sandbox' | 'development' | 'production';
     onSuccess: (publicToken:string, metadata:IGenericObject) => void;
@@ -53,7 +53,7 @@ class PlaidLinkButton extends React.PureComponent<IProps, IState> {
 
       // A list of Plaid product(s) you wish to use. Valid products are : transactions, auth, and identity.
       // Only institutions that support all requested products will be shown.
-      product: PropTypes.arrayOf(PropTypes.oneOf(['transactions', 'auth', 'identity'])).isRequired,
+      product: PropTypes.arrayOf(PropTypes.oneOf(['auth', 'transactions', 'identity', 'balance', 'income', 'assets'])).isRequired,
 
       // The public_key associated with your account; available from the Dashboard.
       key: PropTypes.string.isRequired,

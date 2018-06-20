@@ -1,7 +1,7 @@
 {
   "name": "react-plaid-link-button",
   "author": "https://sarink.net",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A drop-in implementation of Plaid Link with typescript definitions, built for React.",
   "main": "dist/react-plaid-link-button/react-plaid-link-button.js",
   "types": "dist/react-plaid-link-button/react-plaid-link-button.d.ts",

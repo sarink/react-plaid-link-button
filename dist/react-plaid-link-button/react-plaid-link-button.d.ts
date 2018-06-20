@@ -12,7 +12,7 @@ export interface IProps {
     onScriptError?: () => void;
     plaidLinkProps: {
         clientName: string;
-        product: Array<'transactions' | 'auth' | 'identity'>;
+        product: Array<'auth' | 'transactions' | 'identity' | 'balance' | 'income' | 'assets'>;
         key: string;
         env: 'sandbox' | 'development' | 'production';
         onSuccess: (publicToken: string, metadata: IGenericObject) => void;

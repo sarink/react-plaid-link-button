@@ -88,7 +88,7 @@ var PlaidLinkButton = /** @class */ (function (_super) {
             clientName: PropTypes.string.isRequired,
             // A list of Plaid product(s) you wish to use. Valid products are : transactions, auth, and identity.
             // Only institutions that support all requested products will be shown.
-            product: PropTypes.arrayOf(PropTypes.oneOf(['transactions', 'auth', 'identity'])).isRequired,
+            product: PropTypes.arrayOf(PropTypes.oneOf(['auth', 'transactions', 'identity', 'balance', 'income', 'assets'])).isRequired,
             // The public_key associated with your account; available from the Dashboard.
             key: PropTypes.string.isRequired,
             // The Plaid API environment on which to create user accounts.
